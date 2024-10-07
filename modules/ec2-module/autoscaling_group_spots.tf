@@ -2,9 +2,9 @@ resource "aws_autoscaling_group" "spots" {
   name_prefix = format("%s-spots", var.project_name)
 
   vpc_zone_identifier = [
-    data.aws_ssm_parameter.subnet_private_1a.value,
-    data.aws_ssm_parameter.subnet_private_1b.value,
-    data.aws_ssm_parameter.subnet_private_1c.value,
+    var.subnet_private_1a,
+    var.subnet_private_1b,
+    var.subnet_private_1c,
   ]
 
   desired_capacity                 = var.cluster_spot_desired_size

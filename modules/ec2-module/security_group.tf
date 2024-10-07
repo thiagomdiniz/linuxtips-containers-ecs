@@ -1,6 +1,6 @@
 resource "aws_security_group" "main" {
   name   = format("%s", var.project_name)
-  vpc_id = data.aws_ssm_parameter.vpc.value
+  vpc_id = var.vpc_id
 
   egress {
     from_port = 0
