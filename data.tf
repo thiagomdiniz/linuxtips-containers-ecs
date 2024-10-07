@@ -1,5 +1,5 @@
 data "aws_ssm_parameter" "vpc" {
-  name = var.ssm_vpn_id
+  name = var.ssm_vpc_id
 }
 
 data "aws_ssm_parameter" "subnet_public_1a" {
