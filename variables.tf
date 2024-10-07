@@ -12,39 +12,39 @@ variable "aws_region" {
 
 # SSM VPC
 
-variable "ssm_vpn_id" {
+variable "ssm_vpc_id" {
   description = "O ID da VPC onde os recursos relacionados ao SSM serão criados."
-  type = string
+  type        = string
 }
 
 variable "ssm_public_subnet_1" {
   description = "O ID da primeira subnet pública na VPC para recursos SSM."
-  type = string
+  type        = string
 }
 
 variable "ssm_public_subnet_2" {
   description = "O ID da segunda subnet pública na VPC para recursos SSM."
-  type = string
+  type        = string
 }
 
 variable "ssm_public_subnet_3" {
   description = "O ID da terceira subnet pública na VPC para recursos SSM."
-  type = string
+  type        = string
 }
 
 variable "ssm_private_subnet_1" {
   description = "O ID da primeira subnet privada na VPC para recursos SSM."
-  type = string
+  type        = string
 }
 
 variable "ssm_private_subnet_2" {
   description = "O ID da segunda subnet privada na VPC para recursos SSM."
-  type = string
+  type        = string
 }
 
 variable "ssm_private_subnet_3" {
   description = "O ID da terceira subnet privada na VPC para recursos SSM."
-  type = string
+  type        = string
 }
 
 # Balancer
@@ -109,4 +109,18 @@ variable "cluster_spot_max_size" {
 variable "cluster_spot_desired_size" {
   description = "O número desejado de instâncias spot no cluster ECS."
   type        = number
+}
+
+variable "cluster_fargate_only" {
+  description = "Defina o valor como false caso queira usar recursos EC2 para rodar as tasks, e não apenas Fargate."
+  type        = bool
+  default     = true
+}
+
+variable "fargate_capacity_providers" {
+  type        = list(string)
+  description = "A lista dos capacity providers que serão permitidos no cluster Fargate."
+  default = [
+    "FARGATE", "FARGATE_SPOT"
+  ]
 }

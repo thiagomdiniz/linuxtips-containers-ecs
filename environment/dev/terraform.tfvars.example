@@ -6,7 +6,7 @@ aws_region = "us-east-1"
 
 # SSM VPC Parameters
 
-ssm_vpn_id = "/linuxtips-vpc/vpc/vpc_id"
+ssm_vpc_id = "/linuxtips-vpc/vpc/vpc_id"
 
 ssm_public_subnet_1 = "/linuxtips-vpc/vpc/subnet_public_1a"
 
@@ -48,3 +48,5 @@ cluster_spot_min_size = 2
 cluster_spot_max_size = 4
 
 cluster_spot_desired_size = 3
+
+# cluster_fargate_only = false
