@@ -9,3 +9,15 @@ resource "aws_ssm_parameter" "lb_listener" {
   type  = "String"
   value = aws_lb_listener.main.arn
 }
+
+resource "aws_ssm_parameter" "lb_internal_arn" {
+  name  = "/linuxtips/ecs/lb/internal/id"
+  type  = "String"
+  value = aws_lb.internal.arn
+}
+
+resource "aws_ssm_parameter" "lb_internal_listener" {
+  name  = "/linuxtips/ecs/lb/internal/listener"
+  type  = "String"
+  value = aws_lb_listener.internal.arn
+}
