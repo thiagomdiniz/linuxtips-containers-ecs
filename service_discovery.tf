@@ -3,3 +3,9 @@ resource "aws_service_discovery_private_dns_namespace" "main" {
   description = "Service Discovery para o cluster ECS"
   vpc         = data.aws_ssm_parameter.vpc.value
 }
+
+resource "aws_service_discovery_private_dns_namespace" "sc" {
+  name        = format("%s.local", var.project_name)
+  description = "Service Connect para o cluster ECS"
+  vpc         = data.aws_ssm_parameter.vpc.value
+}
