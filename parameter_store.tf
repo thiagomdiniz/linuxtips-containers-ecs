@@ -39,3 +39,9 @@ resource "aws_ssm_parameter" "service_connect_name" {
   type  = "String"
   value = aws_service_discovery_private_dns_namespace.sc.name
 }
+
+resource "aws_ssm_parameter" "vpc_link" {
+  name  = "/linuxtips/ecs/vpc-link/id"
+  type  = "String"
+  value = aws_api_gateway_vpc_link.main.id
+}
